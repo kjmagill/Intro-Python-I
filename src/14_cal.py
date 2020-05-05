@@ -43,14 +43,18 @@ if (len(args) == 1):
 
 else:
   # only one arg passed in, which is assumed to be the month of this year
-  if (len(args) == 2):
+  if (len(args) == 2) and (0 < int(args[1]) < 13):
     yy = datetime.now().year
+    mm = int(args[1])
+
+  elif (len(args) == 2) and (int(args[1]) > 13):
+    print('You only provided one argument, which is presumed to be a specific month of this year. Please pass an integer value from 1 to 12 as this argument.')
 
   # both month and year provided in args
   elif (len(args) == 3):
     yy = int(args[2])
+    mm = int(args[1])
 
-  mm = int(args[1])
   output = calendar.month(yy, mm)
   print(output)
 
