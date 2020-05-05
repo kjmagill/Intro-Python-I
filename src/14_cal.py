@@ -31,29 +31,55 @@ import sys
 import calendar
 from datetime import datetime
 
-yy = input("Input Year: ")
-mm = input("Input Month: ")
+args = sys.argv
 
-if(yy == "") and (mm == ""):
+# no month or year provided in args
+if (len(args) == 1):
+  yy = datetime.now().year
+  mm = datetime.now().month
+  output = calendar.month(yy, mm)
+  print(output)
+  print('To display a specific month and year in the past, please pass integers for the month and year as arguments when running the program like so: "14_cal.py [month] [year]"')
+
+else:
+  # only one arg passed in, which is assumed to be the month of this year
+  if (len(args) == 2):
     yy = datetime.now().year
-    mm = datetime.now().month
-    output = calendar.month(yy, mm)
-    print(output)
 
-elif (yy == "") and (mm.isdigit()):
-    yy = datetime.now().year
-    mm = int(mm)
-    output = calendar.month(yy, mm)
-    print(output)
+  # both month and year provided in args
+  elif (len(args) == 3):
+    yy = int(args[2])
 
-elif (yy.isdigit()) and (mm == ""):
-    yy = int(yy)
-    mm = datetime.now().month
-    output = calendar.month(yy, mm)
-    print(output)
+  mm = int(args[1])
+  output = calendar.month(yy, mm)
+  print(output)
 
-elif (yy.isdigit()) and (mm.isdigit()):
-    yy = int(yy)
-    mm = int(mm)
-    output = calendar.month(yy, mm)
-    print(output)
+
+# # My old code using prompted inputs
+
+# yy = input("Input Year: ")
+# mm = input("Input Month: ")
+
+# if(yy == "") and (mm == ""):
+#     yy = datetime.now().year
+#     mm = datetime.now().month
+#     output = calendar.month(yy, mm)
+#     print(output)
+
+# elif (yy == "") and (mm.isdigit()):
+#     yy = datetime.now().year
+#     mm = int(mm)
+#     output = calendar.month(yy, mm)
+#     print(output)
+
+# elif (yy.isdigit()) and (mm == ""):
+#     yy = int(yy)
+#     mm = datetime.now().month
+#     output = calendar.month(yy, mm)
+#     print(output)
+
+# elif (yy.isdigit()) and (mm.isdigit()):
+#     yy = int(yy)
+#     mm = int(mm)
+#     output = calendar.month(yy, mm)
+#     print(output)
