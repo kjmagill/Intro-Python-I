@@ -42,7 +42,7 @@ if (len(args) == 1):
   print('To display a specific month and year in the past, please pass integers for the month and year as arguments when running the program like so: "14_cal.py [month] [year]"')
 
 else:
-  # only one arg passed in, which is assumed to be the month of this year
+  # only one arg passed in, which is presumed to be a specific month in the current year
   if (len(args) == 2) and (0 < int(args[1]) < 13):
     yy = datetime.now().year
     mm = int(args[1])
