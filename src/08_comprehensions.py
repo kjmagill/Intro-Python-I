@@ -26,7 +26,7 @@ print('Should be [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]: ', y)
 
 a = ["foo", "bar", "baz"]
 
-y = [a[i].upper() for i in range(len(a))]
+y = [s.upper() for s in a]
 
 print('Should print "FOO", "BAR", "BAZ": ', y)
 
@@ -36,6 +36,6 @@ print('Should print "FOO", "BAR", "BAZ": ', y)
 x = input("Enter comma-separated numbers: ").split(',')
 
 # What do you need between the square brackets to make it work?
-y = [x[i] for i in range(len(x)) if i % 2 == 0]
+y = [elem for elem in x if int(elem) % 2 == 0]
 
 print('Should print only even numbers: ', y)
